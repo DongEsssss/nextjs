@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import './home.css'
 
 const LoadingSpinner = () => {
     return <div className="spinner"></div>;
@@ -49,15 +50,17 @@ export default function HomePage() {
                 value={searchTerm}
                 onChange={handleSearchChange}
             />
-            {filteredPosts.map((post: any) => (
-                <div key={post.id}>
-                    <span style={{ fontWeight: 'bold', marginRight: '20px' }}>
-                        {post.id}
-                    </span>
+            <div className="list">
+                {filteredPosts.map((post: any) => (
+                    <div key={post.id}>
+                        <span style={{ fontWeight: 'bold', marginRight: '20px' }}>
+                            {post.id}
+                        </span>
 
-                    <span>{post.title}</span>
-                </div>
-            ))}
+                        <span>{post.title}</span>
+                    </div>
+                ))}
+            </div>
             <button onClick={() => router.push('/counter')}>카운터</button>
         </section>
     );
