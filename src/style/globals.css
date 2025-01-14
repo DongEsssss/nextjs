@@ -24,11 +24,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-main {
-  height: 100vh;
-}
-
 header {
   height: 200px;
 }
@@ -52,4 +47,10 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  gap: 20pxß;
 }
