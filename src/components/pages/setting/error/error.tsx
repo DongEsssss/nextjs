@@ -1,16 +1,7 @@
-'use client' // Error boundaries must be Client Components
-
-export default function Error({
-    error,
-    reset,
-}: {
-    error: Error & { digest?: string }
-    reset: () => void
-}) {
+export default function Error() {
     return (
         <div>
-            <h2>Something went wrong!</h2>
-            <button onClick={() => reset()}>Try again</button>
+            데이터를 불러오지 못하거나 데이터가 없습니다.
         </div>
     )
 }

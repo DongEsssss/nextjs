@@ -2,6 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Error from '../setting/error/error';
+import { table } from 'console';
+
+const LoadingSpinner = () => {
+    return <div className="spinner"></div>;
+};
 
 export default function HomePage() {
     const [posts, setPosts] = useState([]);
@@ -13,30 +19,30 @@ export default function HomePage() {
             try {
                 const response = await fetch('https://jsonplaceholder.typicode.com/posts');
                 const data = await response.json();
-                setPosts(data);
+                setTimeout(() => {
+                    setPosts(data);
+                    setLoading(false);
+                }, 3000);
             } catch (error) {
                 console.error('에러 발생:', error);
-                alert('어떤 에러로 안열림')
-            } finally {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, []);
 
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <LoadingSpinner />;
     }
 
     return (
         <div>
             <ul>
                 {posts.map((post: any) => (
-                    <li key={post.id}>
-                        {post.id}: {post.title}
-                    </li>
+                    <table>
+                        <thead><th style={{ width: '60px', textAlign: 'left' }}>{post.id}</th><td>{post.title}</td></thead>
+                    </table>
                 ))}
             </ul>
             <button onClick={() => router.push('/counter')}>카운터</button>
