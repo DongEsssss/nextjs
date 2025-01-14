@@ -1,0 +1,15 @@
+body {
+    height: 100vh;
+}
+
+main {
+    height: calc(100vh - 400px);
+}
+
+.header {
+    height: 200px;
+}
+
+.footer {
+    height: 200px;
+}

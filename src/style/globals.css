@@ -24,6 +24,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+main {
+  height: 100vh;
+}
+
+header {
+  height: 200px;
+}
+
+footer {
+  height: 200px;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
