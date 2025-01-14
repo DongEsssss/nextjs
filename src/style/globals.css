@@ -51,6 +51,9 @@ a {
 
 main {
   padding: 0px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -60,6 +63,10 @@ button {
 }
 
 .spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: 16px solid #f3f3f3;
   /* Light grey */
   border-top: 16px solid #cccccc;

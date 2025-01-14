@@ -2,8 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Error from '../setting/error/error';
-import { table } from 'console';
 
 const LoadingSpinner = () => {
     return <div className="spinner"></div>;
@@ -12,6 +10,7 @@ const LoadingSpinner = () => {
 export default function HomePage() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
     const router = useRouter();
 
     useEffect(() => {
@@ -19,33 +18,47 @@ export default function HomePage() {
             try {
                 const response = await fetch('https://jsonplaceholder.typicode.com/posts');
                 const data = await response.json();
-                setTimeout(() => {
-                    setPosts(data);
-                    setLoading(false);
-                }, 3000);
+                setPosts(data);
+                setLoading(false);
             } catch (error) {
                 console.error('에러 발생:', error);
                 setLoading(false);
             }
         };
         fetchData();
-    }, []);
-
+    }, []); // 빈 배열을 넣어 컴포넌트가 마운트될 때 한 번만 실행되도록 함
 
     if (loading) {
         return <LoadingSpinner />;
     }
 
+    // search
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const filteredPosts = posts.filter((post: any) =>
+        post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
-        <div>
-            <ul>
-                {posts.map((post: any) => (
-                    <table>
-                        <thead><th style={{ width: '60px', textAlign: 'left' }}>{post.id}</th><td>{post.title}</td></thead>
-                    </table>
-                ))}
-            </ul>
+        <section>
+            <input
+                type="text"
+                placeholder="검색어를 입력하세요"
+                value={searchTerm}
+                onChange={handleSearchChange}
+            />
+            {filteredPosts.map((post: any) => (
+                <div key={post.id}>
+                    <span style={{ fontWeight: 'bold', marginRight: '20px' }}>
+                        {post.id}
+                    </span>
+
+                    <span>{post.title}</span>
+                </div>
+            ))}
             <button onClick={() => router.push('/counter')}>카운터</button>
-        </div>
+        </section>
     );
 }
