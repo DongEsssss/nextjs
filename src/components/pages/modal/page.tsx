@@ -3,6 +3,8 @@
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/modal";
 import { Button } from "@nextui-org/react";
 
+import './modal.css'
+
 export default function ModalPage() {
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -10,7 +12,7 @@ export default function ModalPage() {
     return (
         <>
             <Button onPress={onOpen}>Open Modal</Button>
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="Modal">
                 <ModalContent>
                     {(onClose) => (
                         <>
@@ -34,12 +36,12 @@ export default function ModalPage() {
                                     deserunt nostrud ad veniam.
                                 </p>
                             </ModalBody>
-                            <ModalFooter>
-                                <Button color="danger" variant="light" onPress={onClose}>
-                                    Close
-                                </Button>
+                            <ModalFooter className="ModalFooter">
                                 <Button color="primary" onPress={onClose}>
                                     Action
+                                </Button>
+                                <Button color="danger" variant="light" onPress={onClose}>
+                                    Close
                                 </Button>
                             </ModalFooter>
                         </>
