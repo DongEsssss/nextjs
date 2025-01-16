@@ -1,5 +1,6 @@
+
+import ModalPage from '@/src/components/pages/modal/page';
 import React from 'react';
-import ModalPage from '@/components/pages/modal/page';
 
 const Modal = () => {
     return (

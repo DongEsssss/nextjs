@@ -1,8 +1,9 @@
 import React from 'react';
 import { Providers } from "./providers";
-import Header from '@/components/frame/header/Header';
-import Footer from '@/components/frame/footer/Footer';
-import '@/style/globals.css'
+
+import '../style/globals.css'
+import Header from '../components/frame/header/Header';
+import Footer from '../components/frame/footer/Footer';
 
 export default function RootLayout({
   children,
