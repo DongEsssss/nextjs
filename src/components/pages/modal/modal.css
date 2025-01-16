@@ -1,0 +1,12 @@
+.Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ModalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
