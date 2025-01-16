@@ -8,7 +8,7 @@ export default function Header() {
     const router = useRouter();
 
     return (
-        <header>
+        <header style={{ display: 'flex', alignItems: 'center' }}>
             <h1>Header</h1>
             <nav>
                 <div style={{ display: 'flex', gap: '20px', marginLeft: '20px' }}>
