@@ -9,13 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/modal": "^2.2.7",
     "@nextui-org/react": "^2.6.11",
+    "@nextui-org/system": "^2.4.6",
+    "@nextui-org/theme": "^2.4.5",
     "framer-motion": "^11.18.0",
     "next": "15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-error-boundary": "^5.0.0",
-    "react-router-dom": "^6.28.1"
+    "react-router-dom": "^6.28.1",
+    "useref": "^1.4.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
